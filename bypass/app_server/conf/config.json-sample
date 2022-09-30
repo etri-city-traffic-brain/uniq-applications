@@ -1,0 +1,36 @@
+{
+  "port": 6558,
+  "SSL": false,
+  "cors": "*",
+  "db": {
+    "local_app": {
+      "host": "localhost",
+      "user": "manager",
+      "password": "",
+      "database": "etri_app",
+      "connectionLimit": 50,
+      "multipleStatements": true
+    },
+    "local_edge": {
+      "host": "localhost",
+      "user": "manager",
+      "password": "",
+      "database": "etri_edge",
+      "connectionLimit": 50,
+      "multipleStatements": true
+    },
+    "wedrive_tracking": {
+      "host": "",
+      "user": "manager",
+      "password": "",
+      "database": "wedrive",
+      "connectionLimit": 50,
+      "multipleStatements": true
+    }
+  },
+  "memberField": "*",
+  "token": {
+    "secret": "SECRET",
+    "expire": "5m"
+  }
+}

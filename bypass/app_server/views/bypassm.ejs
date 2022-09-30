@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+
+<body>
+  <div id="app">
+    <v-app id="main">
+      <v-container style="margin-top:20px">
+        <v-row>
+          <v-col>
+            <div v-for="img in contents.imgList" :key="contents.imgList" style="position:relative;">
+              <v-img :src='img' style=" position:absolute;">
+              </v-img>
+            </div>
+          </v-col>
+        </v-row>
+        <v-row align="center" justify="center" style="margin-top:500px;">
+          <v-row>
+            <v-col align="center" justify="center" id="textTitle">
+              <v-btn icon><img src='./img/infoIcon/icon_light.png'></img></v-btn>
+              {{contents.title}}
+              <v-btn icon><img src='./img/infoIcon/icon_light.png'></img></v-btn>
+            </v-col>
+          </v-row>
+          <v-row align="center" justify="center">
+            <div id="textSubTitle">{{contents.subtitle}}</div>
+          </v-row>
+          <v-row align="center" justify="center">
+            <div id="textContents">{{contents.message}}</div>
+          </v-row>
+        </v-row>
+      </v-container>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-multipane@0.9.5/dist/vue-multipane.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: () => {
+        return {
+          contents: {
+            title: '우회경로 알림',
+            subtitle: '전방에 교통 정체 발생',
+            imgSrc: './img/bypass_001.png',
+            message: '100미터 앞에서 우회하세요.',
+            imgList: ['./img/region1/bg.png', './img/region1/1.png', './img/region1/2.png', './img/region1/3.png', './img/region1/4.png', './img/region1/5.png', './img/region1/6.png', './img/region1/7.png', './img/region1/8.png']
+          }
+        }
+      },
+      computed: {
+
+      },
+      methods: {
+      },
+      created() {
+        var that = this;
+        document.addEventListener("message", e => {
+          var data = JSON.parse(e.data);
+          that.contents.title = data.title;
+          that.contents.subtitle = data.subtitle;
+          that.contents.imgSrc = "./img/" + data.imgSrc;
+          that.contents.message = data.message;
+        });
+        window.addEventListener("message", e => {
+          var data = JSON.parse(e.data);
+          that.contents.title = data.title;
+          that.contents.subtitle = data.subtitle;
+          that.contents.imgSrc = "./img/" + data.imgSrc;
+          that.contents.message = data.message;
+        });
+      }
+    })
+  </script>
+
+  <style>
+    #main {
+      background-color: #575757;
+    }
+
+    #textTitle {
+      font-size: 24pt;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.96,
+    }
+
+    #textSubTitle {
+      font-size: 16pt;
+      color: #FFFFFF;
+      letter-spacing: -0.64,
+    }
+
+    #textContents {
+      font-size: 12pt;
+      color: #FFFFFF;
+      letter-spacing: -0.64,
+    }
+  </style>
+</body>
+
+</html>
