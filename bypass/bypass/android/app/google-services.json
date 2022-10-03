@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "282197598187",
+    "project_id": "bypass-9b292",
+    "storage_bucket": "bypass-9b292.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:282197598187:android:71ecc95f96425ef82d83ae",
+        "android_client_info": {
+          "package_name": "kr.wedrive.bypass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "282197598187-kt7f0dp8tpcg3jkg47a89seerked6vib.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.wedrive.bypass",
+            "certificate_hash": "f8719d3c4e43929665569579f28cfd11270cbd14"
+          }
+        },
+        {
+          "client_id": "282197598187-mu1am2fivf603it4986n3d88kpo9tsoo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFmdCM3tfIOWU0ABHMSpQiBSW6HarTs0U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "282197598187-mu1am2fivf603it4986n3d88kpo9tsoo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

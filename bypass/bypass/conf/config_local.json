@@ -1,0 +1,7 @@
+{
+  "baseURL": "http://169.254.186.121:3000",
+  "axios_edge": {
+    "baseURL": "http://169.254.186.121:3000",
+    "credentials": true
+  }
+}
