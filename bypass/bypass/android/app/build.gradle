@@ -136,7 +136,7 @@ android {
         applicationId "kr.wedrive.bypass"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
+        versionCode 4
         versionName "0.1"
     }
     splits {
@@ -213,6 +213,8 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
 
     implementation 'com.google.firebase:firebase-analytics'
+
+    implementation 'com.mapbox.mapboxsdk:mapbox-android-telemetry:6.1.0'
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'

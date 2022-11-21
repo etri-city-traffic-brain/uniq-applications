@@ -19,7 +19,7 @@ import axios from '../mods/axios';
 import moment from 'moment';
 import {NavigationService} from '../navigation';
 import store from '../mods/store';
-import MapboxGL from '@react-native-mapbox-gl/maps';
+import MapboxGL, {Logger} from '@react-native-mapbox-gl/maps';
 import Sound from 'react-native-sound';
 
 const path = require('../../assets/voice.mp3');
@@ -31,7 +31,7 @@ var voice = new Sound(path, null, error => {
 });
 
 MapboxGL.setAccessToken(
-  'pk.eyJ1IjoiZ3VwYXJrODIiLCJhIjoiY2tzNGJ6dG1yMDB0ZTJvcWlxdjI1aWEybyJ9.7JAuEF31_NYA5Zq2wj_wxA',
+  'pk.eyJ1IjoiZ3VwYXJrODIiLCJhIjoiY2w4Mnpsazh2MDB4YzN2bXZudGZidzJzMCJ9.wtBmMzdhIJ5tHi2I2weZsg',
 );
 
 var debugTryCnt = [];
@@ -47,6 +47,18 @@ var mapRef = null;
 var phoneNumber = null;
 
 var mapboxRef = null;
+
+Logger.setLogCallback(log => {
+  const {message} = log;
+
+  if (
+    message.match('Request failed due to a permanent error: Canceled') ||
+    message.match('Request failed due to a permanent error: Socket Closed')
+  ) {
+    return true;
+  }
+  return false;
+});
 
 async function GetPhonenumber() {
   var jsonValue = await store.getData();
