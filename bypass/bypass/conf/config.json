@@ -1,0 +1,7 @@
+{
+  "baseURL": "http://a.wedrive.kr:6558",
+  "axios_edge": {
+    "baseURL": "http://a.wedrive.kr:6558",
+    "credentials": true
+  }
+}

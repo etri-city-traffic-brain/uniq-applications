@@ -1,0 +1,10 @@
+{
+  "baseURL": "http://localhost:6556",
+  "socketURL": "http://localhost:7472",
+  "axios": {
+    "baseURL": "http://localhost:6556",
+    "credentials": true
+  },
+  "exceptAuthChkPath": ["/login", "/"],
+  "exceptSavePath": ["/login", "/"]
+}
