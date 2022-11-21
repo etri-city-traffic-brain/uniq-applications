@@ -18,11 +18,23 @@
       "database": "etri_edge_1",
       "connectionLimit": 50,
       "multipleStatements": true
+    },
+    "bypass_testdb": {
+      "host": "",
+      "user": "bypass",
+      "password": "",
+      "database": "test_db",
+      "connectionLimit": 50,
+      "multipleStatements": true
     }
   },
   "memberField": "*",
   "token": {
     "secret": "SECRET",
     "expire": "5m"
+  },
+  "app_server" : {
+    "domain": "",
+    "port": 0
   }
 }

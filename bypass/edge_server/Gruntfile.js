@@ -19,7 +19,7 @@ module.exports = (grunt) => {
       },
     },
     apidoc: {
-      barosa_server2: {
+      server: {
         src: "routes/",
         dest: "public/apidoc/",
       },

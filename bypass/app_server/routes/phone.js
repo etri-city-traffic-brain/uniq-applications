@@ -10,6 +10,14 @@ const getRndNum = (min, max) => {
   return parseInt(Math.random() * (max - min + 1) + min);
 };
 
+/**
+ * @api {get} /phone/req 인증 번호 요청
+ * @apiGroup Phone
+ *
+ * @apiParam {String} phone 핸드폰 번호
+ *
+ * @apiSuccess {String} result 결과
+ */
 router.post('/req', async (req, res) => {
   var phone = req.body.phone;
 

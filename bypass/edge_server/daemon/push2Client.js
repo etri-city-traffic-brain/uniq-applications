@@ -4,6 +4,7 @@ var fbAdmin = require("firebase-admin");
 var serviceAccount = require("./serviceAccountKey.json");
 const moment = require("moment");
 const pointInPolygon = require("point-in-polygon");
+const config = require("../conf/config.json");
 
 var bypassInfoList = null;
 var uuidList = null;
@@ -136,18 +137,17 @@ const sendPushMsg = (uuid, message) => {
     }
 
     if (send == true) {
-      // push는 발송하지 않고 로그 기록만 추가
-      // fbAdmin
-      //   .messaging()
-      //   .send(message)
-      //   .then((response) => {
-      //     console.log("success : ", response);
-      //     insertPushInfo(uuid, message, "Y");
-      //   })
-      //   .catch((err) => {
-      //     console.log("error : ", err);
-      //   });
-      insertPushInfo(uuid, message, "N");
+      fbAdmin
+        .messaging()
+        .send(message)
+        .then((response) => {
+          console.log("success : ", response);
+          insertPushInfo(uuid, message, "Y");
+        })
+        .catch((err) => {
+          console.log("error : ", err);
+        });
+      // insertPushInfo(uuid, message, "N");
     }
   });
 };
@@ -208,8 +208,12 @@ const checkTraffic = async (roadInfoList) => {
 };
 
 const createImgList = (roadInfoList) => {
-  var resultList = ["http://a.wedrive.kr:6558/img/region1/bg.png"];
+  var resultList = [];
+  var bgImgPath = `${config.app_server.domain}:${config.app_server.port}/img/region1/bg.png`;
+  // var bgImgPath = `${config.app_server.domain}:${config.app_server.port}/img/region2/bg.png`; //엣지노드 담당 지역에 따라 리전 이미지 변경
+  resultList.push(bgImgPath);
   if (roadInfoList.length != 8) {
+  // if (roadInfoList.length != 9) {//엣지노드 담당 지역에 따라 도로 개수 변경
     console.log("error : length of roadInfoList is ", roadInfoList.length);
     return null;
   }
@@ -227,7 +231,7 @@ const createImgList = (roadInfoList) => {
       color = "yellow";
     }
 
-    var tempPath = `http://a.wedrive.kr:6558/img/region1/${color}/${index}.png`;
+    var tempPath = `${config.app_server.domain}:${config.app_server.port}/img/region1/${color}/${index}.png`;
     resultList.push(tempPath);
   }
 

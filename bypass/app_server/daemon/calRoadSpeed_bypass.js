@@ -56,38 +56,39 @@ const getAvgByCctv = (cctvid) => {
 
 // 5분마다 CCTV 속도 체크 후 기록
 const daemonMain = async () => {
-  // setInterval(async () => {}, 1000 * 60 * 5);
-  await getAvgByCctv("C0001")
-    .then(() => {
-      console.log("done1.");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  setInterval(async () => {
+    await getAvgByCctv("C0001")
+      .then(() => {
+        console.log("done1.");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-  await getAvgByCctv("C0002")
-    .then(() => {
-      console.log("done2.");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    await getAvgByCctv("C0002")
+      .then(() => {
+        console.log("done2.");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-  await getAvgByCctv("C0003")
-    .then(() => {
-      console.log("done3.");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    await getAvgByCctv("C0003")
+      .then(() => {
+        console.log("done3.");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
-  await getAvgByCctv("C0004")
-    .then(() => {
-      console.log("done4.");
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+    await getAvgByCctv("C0004")
+      .then(() => {
+        console.log("done4.");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, 1000 * 60 * 5);
 };
 
 daemonMain();
