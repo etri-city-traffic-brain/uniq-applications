@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+var app = require("../app");
+const config = require("../conf/config.json");
+const fs = require("fs");
+const https = require("https");
+const moment = require("moment");
+
+if (config.SSL) {
+  const options = {
+    key: fs.readFileSync("./pki/server.key"),
+    cert: fs.readFileSync("./pki/server.crt"),
+    ca: [
+      fs.readFileSync("./pki/CA.crt"),
+      fs.readFileSync("./pki/GLOBALSIGN_ROOT_CA.crt"),
+    ],
+  };
+
+  app.set("port_ssl", process.env.PORT_SSL || config.port);
+
+  https.createServer(options, app).listen(app.get("port_ssl"), function () {
+    console.log("HTTPS server listening on port " + app.get("port_ssl"));
+  });
+} else {
+  app.set("port", process.env.PORT || config.port);
+  var server = app.listen(app.get("port"), function () {
+    console.log("HTTP server listening on port " + server.address().port);
+  });
+}

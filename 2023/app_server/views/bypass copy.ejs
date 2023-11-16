@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+
+<body>
+  <div id="app">
+    <v-app>
+      <v-container fluid>
+        <v-row>
+          <v-col sm=6 md=12>
+            <v-img :src='contents.imgSrc'></v-img>
+          </v-col>
+          <v-col sm=6 md=12>
+            <v-row>
+              <div>
+                <p id="textTitle">{{contents.title}}</p>
+                <p id="textSubTitle">{{contents.subtitle}}</p>
+              </div>
+            </v-row>
+            <v-row>
+              <div>
+                <p id="textContents">{{contents.message}}</p>
+              </div>
+            </v-row>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue-multipane@0.9.5/dist/vue-multipane.min.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: () => {
+        return {
+          contents: {
+            title: 'title',
+            subtitle: 'subtitle',
+            imgSrc: './img/bypass_001.png',
+            message: 'message',
+          }
+        }
+      },
+      computed: {
+
+      },
+      methods: {
+      },
+      created() {
+        var that = this;
+        document.addEventListener("message", e => {
+          var data = JSON.parse(e.data);
+          that.contents.title = data.title;
+          that.contents.subtitle = data.subtitle;
+          that.contents.imgSrc = "./img/" + data.imgSrc;
+          that.contents.message = data.message;
+        });
+      }
+    })
+  </script>
+
+  <style>
+    #textTitle {
+      margin-left: 10px;
+      font-size: 15pt;
+      font-weight: 700;
+      color: #000000;
+    }
+
+    #textSubTitle {
+      margin-left: 10px;
+      font-size: 12pt;
+      color: #666666;
+    }
+
+    #textContents {
+      margin-left: 10px;
+      font-size: 12pt;
+      color: #000000;
+    }
+  </style>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/fonts/GodoB.otf",
+      "sha1": "a6a8e0c83b4fb0896619c2e831c85d834306113b"
+    },
+    {
+      "path": "src/fonts/GodoM.otf",
+      "sha1": "7dd1fa1fc39de8f402df584cb07e05df5e41d23f"
+    },
+    {
+      "path": "src/fonts/NotoSansCJKkr-Black.otf",
+      "sha1": "c8b30259ae7c183ee9e3ba95394314d97a647801"
+    },
+    {
+      "path": "src/fonts/NotoSansCJKkr-Bold.otf",
+      "sha1": "463ee210b3e6fd8758901fab115b7e8ea9813348"
+    },
+    {
+      "path": "src/fonts/NotoSansCJKkr-DemiLight.otf",
+      "sha1": "44a28ebec602318bfa5abe91fa458160a402f5f9"
+    },
+    {
+      "path": "src/fonts/NotoSansCJKkr-Light.otf",
+      "sha1": "e2da7fd136c3ffb8f2a33ca5634e067d426e6435"
+    },
+    {
+      "path": "src/fonts/NotoSansCJKkr-Medium.otf",
+      "sha1": "f7966c6ed581f11fe36e005f2fa2fe11fd5fc614"
+    },
+    {
+      "path": "src/fonts/NotoSansCJKkr-Regular.otf",
+      "sha1": "ebdf9b5886cf6f69a23e890b20f54a90384e0914"
+    },
+    {
+      "path": "src/fonts/NotoSansCJKkr-Thin.otf",
+      "sha1": "55a9b66527cd601957f8cf8853c87d1fb233bb62"
+    }
+  ]
+}

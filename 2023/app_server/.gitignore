@@ -1,0 +1,6 @@
+node_modules/
+.nyc_output
+.sass-cache
+conf/config.json
+public/apidoc/
+.DS_Store
